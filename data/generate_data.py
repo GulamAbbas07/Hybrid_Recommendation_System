@@ -13,36 +13,39 @@ REFERENCE_TIME = datetime(2026, 10, 29)
 
 TOPICS = {
     "technology": [
-        "artificial intelligence", "web development",
-        "cybersecurity", "cloud computing", "robotics", "Competetive Programming"
+        "artificial intelligence", "web development", "Machine Learning",
+        "cybersecurity", "cloud computing", "robotics", "Competetive Programming", "software development",
+        "Electronics", "Quantum Computing"
     ],
     "science": [
-        "space exploration", "quantum physics",
-        "climate science", "genetics", "ocean research"
+        "space exploration", "quantum physics", "dark matter", "chandrayaan",
+        "climate science", "genetics", "ocean research", "Metallurgy"
     ],
     "sports": [
-        "football", "cricket", "basketball",
-        "tennis", "athletics"
+        "football", "cricket", "basketball", "Rugby", "baseball", "squash", "swimming", "surfing",
+        "tennis", "athletics", "badminton", "volleyball", "javelin", "wrestling", "kabaddi", "hockey",
+        "rowing", "pickleball", "boxing", "archery", "golf", "table tennis", "Judo", "Water polo", "handball"
     ],
     "finance": [
-        "investing", "budgeting", "banking",
-        "financial markets", "business"
+        "investing", "budgeting", "banking", "debts", "Insurance", "Real Estate", "mortgage", "capital-gain tax",
+        "financial markets", "business", "Private Equity", "taxations", "Bonds", "Mutual Funds", "Sanctions",
+        "Merger and Acquisitions", ""
     ],
     "entertainment": [
-        "movies", "music", "gaming",
-        "animation", "photography"
+        "movies", "music", "gaming", "Cartoons", "Anime", "Concerts", "podcasts", "audiobooks",
+        "animation", "photography", "E-sports", "virtual reality", "Reels", "Comics", "Amusement parks"
     ],
 }
 
 CATEGORIES = list(TOPICS)
 
 FIRST_NAMES = [
-    "Aarav", "Rahul", "Soham", "Priya",
+    "Aarav", "Rahul", "Soham", "Priya", "Aryan", "Prakhar", "Mohit", "Anagh", "Tijil", "Mannath", "Henil",
     "Rohan", "Sara", "Kabir", "Meera"
 ]
 
 LAST_NAMES = [
-    "Sharma", "Kumar", "Patel", "Singh",
+    "Sharma", "Kumar", "Patel", "Singh", "Jain", "Srivastava", "Pawar", "Sen", "Mishra",
     "Das", "Goyal", "Gupta", "Rao"
 ]
 
@@ -91,7 +94,9 @@ def generate_items(count):
         "Understanding {topic}",
         "Exploring the basics of {topic}",
         "Five questions about {topic}",
-        "How to get started with {topic}"
+        "How to get started with {topic}",
+        "Interesting facts about {topic}",
+        "Getting started with {topic}"
     ]
 
     for item_id in range(1, count + 1):
@@ -119,7 +124,7 @@ def generate_items(count):
 
     return items
 
-def generate_interactions(users, items, count=5000):
+def generate_interactions(users, items, count=5500):
     if count < 0:
         raise ValueError("count must be non-negative")
 
@@ -263,19 +268,19 @@ def save_csv(filename, records):
 
 if __name__ == "__main__":
     users = generate_users(100)
-    items = generate_items(500)
+    items = generate_items(600)
 
     interactions = generate_interactions(
         users,
         items,
-        count=5000
+        count=5500
     )
 
     save_csv("users.csv", users)
     save_csv("items.csv", items)
     save_csv("interactions.csv", interactions)
 
-    assert len(interactions) == 5000
+    assert len(interactions) == 5500
 
     users_with_history = {
         event["user_id"] for event in interactions
