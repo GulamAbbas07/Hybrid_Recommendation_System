@@ -14,7 +14,7 @@ REFERENCE_TIME = datetime(2026, 10, 29)
 TOPICS = {
     "technology": [
         "artificial intelligence", "web development",
-        "cybersecurity", "cloud computing", "robotics"
+        "cybersecurity", "cloud computing", "robotics", "Competetive Programming"
     ],
     "science": [
         "space exploration", "quantum physics",
@@ -186,7 +186,7 @@ def generate_interactions(users, items, count=5000):
             k=1
         )[0]
 
-        if interaction_rng.random() < 0.80:
+        if interaction_rng.random() < 0.70:
             pool = (
                 profile["matching_items"]
                 or profile["other_items"]
